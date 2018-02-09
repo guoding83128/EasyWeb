@@ -1,15 +1,33 @@
 .base {
-  margin: 64px auto;
+  margin: 135px auto;
   text-align: center;
-  width: 800px;
-  height: 100px;
+  width: 80%;
   font-size: x-large;
   border-radius: 25px;
   border-color: black;
+  border: solid;
 }
 
 .button {
+  margin-bottom: 25px;
   text-align: center;
   font-size: large;
   border-radius: 25px;
+  cursor: pointer;
+  background-color: #337ab7;
+}
+
+.logo {
+  animation: Home-logo-spin infinite 20s linear;
+  height: 80px;
+  margin: 15px;
+}
+
+@keyframes Home-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

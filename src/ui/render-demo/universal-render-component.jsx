@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './render-demo.css';
+import logo from './react.svg';
 
 export default class UniversalRenderComponent extends Component {
   constructor(props) {
@@ -24,6 +25,7 @@ export default class UniversalRenderComponent extends Component {
 
     return (
       <div className="base">
+        <img src={logo} className="logo" alt="logo" />
         <p>This is the universal rendering component</p>
         <button className="button" onClick={e => this.handleClick(e)}>{buttonText}</button>
       </div>
