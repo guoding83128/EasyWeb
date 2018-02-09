@@ -1,20 +1,31 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { base } from './render-demo.css';
+import './render-demo.css';
 
 export default class UniversalRenderComponent extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { clicked: false };
+  }
+
   handleClick(e) {
     e.preventDefault();
+
+    this.setState({ clicked: true });
 
     this.props.onChangeState(this.props.componentState);
   }
 
   render() {
+    const buttonText = this.state.clicked
+      ? this.props.componentState
+      : 'Click me to see the state changing';
+
     return (
-      <div className={base} onClick={e => this.handleClick(e)}>
+      <div className="base">
         <p>This is the universal rendering component</p>
-        <p>Click me to see the state changing</p>
-        <p>{this.props.componentState}</p>
+        <button className="button" onClick={e => this.handleClick(e)}>{buttonText}</button>
       </div>
     );
   }
