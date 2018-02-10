@@ -8,7 +8,7 @@
     "copy-bundle-css": "cp build/public/static/css/*.css build/public/static/css/bundle.css",
     "start": "yarn clean-bundle && yarn copy-bundle-js && yarn copy-bundle-css && razzle start",
     "build": "razzle build",
-    "test": "razzle test --env=jsdom",
+    "test": "jest",
     "start:prod": "NODE_ENV=production node build/server.js",
     "develop": "yarn build && yarn start"
   },
@@ -31,11 +31,32 @@
   },
   "devDependencies": {
     "babel-plugin-module-alias": "^1.6.0",
+    "jest": "^22.2.2",
     "module-alias": "^2.0.3"
   },
   "_moduleAliases": {
     "@server": "./dist/server",
     "@client": "./dist/client",
     "@ui": "./dist/ui"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "testEnvironment": "node",
+    "moduleDirectories": [
+      "node_modules"
+    ],
+    "modulePathIgnorePatterns": [
+      "<rootDir>/build/"
+    ],
+    "testMatch": [
+      "**/?(*.)(spec|test).js?(x)"
+    ],
+    "moduleFileExtensions": [
+      "js"
+    ],
+    "verbose": true,
+    "setupFiles": [
+      "<rootDir>/src/test/setupTests.js"
+    ]
   }
 }
