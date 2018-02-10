@@ -24,7 +24,7 @@ export default class UniversalRenderComponent extends Component {
       : 'Click me to see the state changing';
 
     return (
-      <div className="base">
+      <div className="base universal">
         <img src={logo} className="logo" alt="logo" />
         <p>This is the universal rendering component</p>
         <button className="button" onClick={e => this.handleClick(e)}>{buttonText}</button>

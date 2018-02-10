@@ -14,13 +14,27 @@
   font-size: large;
   border-radius: 25px;
   cursor: pointer;
-  background-color: #337ab7;
+  background-color: #358ED7;
+  width: 50%;
+  height: 60px;
 }
 
 .logo {
   animation: Home-logo-spin infinite 20s linear;
   height: 80px;
   margin: 15px;
+}
+
+.client {
+  background-color: #86939E;
+}
+
+.universal {
+  background-color: #EEF2F4;
+}
+
+.server {
+  background-color: #007FB1;
 }
 
 @keyframes Home-logo-spin {

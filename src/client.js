@@ -1,5 +1,5 @@
-import { bootPageComponents } from './client/component-loader';
-import { createStore, getStore } from './client/redux-state';
+import { bootPageComponents } from '@client/component-loader';
+import { createStore, getStore } from '@client/redux-state';
 
 createStore();
 
