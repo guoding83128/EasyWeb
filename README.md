@@ -15,3 +15,7 @@ yarn install
 yarn develop
 
 go to http://localhost:3000/demo/server-render
+
+## Test
+
+yarn test
