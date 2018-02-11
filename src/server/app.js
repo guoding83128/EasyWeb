@@ -5,26 +5,29 @@ import middleware from './routes/middleware';
 import routes from './routes';
 import error from './routes/error'
 
-const app = express();
+export default appRootDir => {
+  global.window = {};
 
-nunjucks.configure(path.join(__dirname, './views'), {
-  autoescape: true,
-  express: app,
-  watch: true
-});
+  const app = express();
 
-// middleware
-app.use(middleware);
+  nunjucks.configure(path.join(__dirname, './views'), {
+    autoescape: true,
+    express: app,
+    watch: true
+  });
 
-// static resource
-app.use('/static', express.static(path.join(__dirname, '../../build/public/static')));
+  // middleware
+  app.use(middleware);
 
-// route
-app.use(routes);
+  // static resource
+  app.use(express.static(`${appRootDir}/build/public`));
+  app.use('/static', express.static(`${appRootDir}/build/public/static`));
 
-// error handling
-app.use(error.errorHandler);
+  // route
+  app.use(routes);
 
-global.window = {};
+  // error handling
+  app.use(error.errorHandler);
 
-export default app;
+  return app;
+};

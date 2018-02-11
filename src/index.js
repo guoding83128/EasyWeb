@@ -1,9 +1,9 @@
 import app from '@server/app';
 import http from 'http';
+import path from 'path';
 
-const server = http.createServer(app);
-
-let currentApp = app;
+const appRootDir = path.resolve(path.resolve(__dirname), '../');
+const server = http.createServer(app(appRootDir));
 
 server.listen(process.env.PORT || 3000, (error) => {
   if (error) {
@@ -13,14 +13,16 @@ server.listen(process.env.PORT || 3000, (error) => {
   console.log('🚀 started')
 });
 
-if (module.hot) {
-  console.log('✅  Server-side HMR Enabled!');
+// let currentApp = app;
 
-  module.hot.accept('./server/app', () => {
-    console.log('🔁  HMR Reloading `./server`...');
-    server.removeListener('request', currentApp);
-    const newApp = require('./server/app').default;
-    server.on('request', newApp);
-    currentApp = newApp;
-  });
-}
+// if (module.hot) {
+//   console.log('✅  Server-side HMR Enabled!');
+
+//   module.hot.accept('./server/app', () => {
+//     console.log('🔁  HMR Reloading `./server`...');
+//     server.removeListener('request', currentApp);
+//     const newApp = require('./server/app').default;
+//     server.on('request', newApp);
+//     currentApp = newApp;
+//   });
+// }
