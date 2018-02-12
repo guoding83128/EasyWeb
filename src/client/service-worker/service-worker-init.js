@@ -1,5 +1,4 @@
-
-export const register = () => {
+export default () => {
   if (window && 'serviceWorker' in window.navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('/sw.js')
