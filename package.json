@@ -3,10 +3,7 @@
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
-    "clean-bundle": "rm -f build/public/static/js/bundle.js && rm -f build/public/static/css/bundle.css",
-    "copy-bundle-js": "cp build/public/static/js/*.js build/public/static/js/bundle.js",
-    "copy-bundle-css": "cp build/public/static/css/*.css build/public/static/css/bundle.css",
-    "start": "yarn clean-bundle && yarn copy-bundle-js && yarn copy-bundle-css && razzle start",
+    "start": "razzle start",
     "build": "razzle build && cp src/client/service-worker/sw.js build/public",
     "test": "jest",
     "start:prod": "NODE_ENV=production node build/server.js",

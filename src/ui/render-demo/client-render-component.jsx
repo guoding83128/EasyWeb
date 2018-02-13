@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import ReactLogo from '@ui/common/react-logo';
 import './render-demo.css';
-import logo from './react.svg';
 
 export default class ClientRenderComponent extends Component {
   constructor(props) {
@@ -18,6 +18,10 @@ export default class ClientRenderComponent extends Component {
     this.props.onChangeState(this.props.componentState);
   }
 
+  renderLogo() {
+    return <div className="logo"><ReactLogo /></div>;
+  }
+
   render() {
     const buttonText = this.state.clicked
       ? this.props.componentState
@@ -25,7 +29,7 @@ export default class ClientRenderComponent extends Component {
 
     return (
       <div className="base client">
-        <img src={logo} className="logo" alt="logo" />
+        {this.renderLogo()}
         <p>This is the client-side rendering component</p>
         <button className="button" onClick={e => this.handleClick(e)}>{buttonText}</button>
       </div>

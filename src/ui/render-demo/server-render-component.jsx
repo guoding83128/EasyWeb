@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
+import ReactLogo from '@ui/common/react-logo';
 import './render-demo.css';
-import logo from './react.svg';
 
 export default class ServerRenderComponent extends Component {
+  renderLogo() {
+    return <div className="logo"><ReactLogo /></div>;
+  }
+
   render() {
     return (
       <div className="base server">
-        <img src={logo} className="logo" alt="logo" />
+        {this.renderLogo()}
         <p>This is the server-side rendering component</p>
       </div>
     );
