@@ -4,6 +4,7 @@ import nunjucks from 'nunjucks';
 import middleware from './routes/middleware';
 import routes from './routes';
 import error from './routes/error'
+import { dataEventInit } from '@server/container-data/data-manager';
 
 export default appRootDir => {
   global.window = {};
@@ -15,6 +16,9 @@ export default appRootDir => {
     express: app,
     watch: true
   });
+
+  // data event
+  dataEventInit();
 
   // middleware
   app.use(middleware);
