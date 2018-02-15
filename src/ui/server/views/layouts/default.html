@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <head>
+    <title>welcome to {{ title }}</title>
+    <script>
+      window.gd = {};
+      window.gd.page_components = [];
+    </script>
+  </head>
+  <body>
+    <div id="body">
+      {% block content %}{% endblock %}
+    </div>
+
+    <script>
+      window.gd.__preloaded_state__ = {{ preloadedState | dump | safe }};
+      window.gd.__config__ = {{ config | dump | safe }};
+    </script>
+    <script src="http://localhost:3001/static/js/bundle.js"></script>
+  </body>
+</html>
