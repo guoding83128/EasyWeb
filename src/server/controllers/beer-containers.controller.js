@@ -1,10 +1,10 @@
 import React from 'react';
 import ComponentController from './component.controller';
-import BeerContainer from '@client/connectors/beer-containers.connector';
+import BeerContainers from '@client/connectors/beer-containers.connector';
 
 export default (props = {}) => ComponentController({
   type: 'universal',
-  name: 'BeerContainer',
+  name: 'BeerContainers',
   props: props,
-  component: <BeerContainer {...props} />
+  component: <BeerContainers {...props} />
 });

@@ -1,20 +1,21 @@
 const longPolling = () => dispatch => {
   fetch('/api/updateData')
     .then(res => {
-      if (!res.ok) {
+      if (res.ok) {
+        res.json()
+          .then(data => {
+            dispatch(recvUpdateData(data));
+          });
+      } else if (res.status === 408) {
+        console.log('long-polling timeout');
+      } else {
         throw Error(res.statusText);
       }
-      return res;
-    })
-    .then(res => res.json())
-    .then(data => {
-      dispatch(recvUpdateData(data));
+
+      longPolling()(dispatch);
     })
     .catch(err => {
       console.error('getUpdateData error', err);
-    })
-    .finally(() => {
-      longPolling()(dispatch);
     });
 };
 
@@ -40,15 +41,15 @@ export const getContainerData = () => dispatch => {
       if (!res.ok) {
         throw Error(res.statusText);
       }
-      return res;
-    })
-    .then(res => res.json())
-    .then(data => {
-      // receive first whole data
-      dispatch(recvContainerData(data));
 
-      // set-up long-polling connection
-      dispatch(getUpdateData());
+      res.json()
+        .then(data => {
+          // receive first whole data
+          dispatch(recvContainerData(data));
+
+          // set-up long-polling connection
+          dispatch(getUpdateData());
+        });
     })
     .catch(err => {
       console.error('getContainerData error', err);

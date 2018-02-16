@@ -1,0 +1,67 @@
+.containersBase {
+  margin: 15px auto;
+}
+
+.containersTitle {
+  text-align: center;
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+.containerColors {
+  display: flex;
+}
+
+.color {
+  flex: 1;
+  width: 20%;
+  padding: 5px;
+  text-align: center;
+}
+
+.containersGrid {
+  margin: 25px auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-row-gap: 20px;
+  grid-column-gap: 20px;
+}
+
+.containerBase {
+  border: 1px solid;
+  padding: 20px;
+  text-align: center;
+}
+
+.containerTitle {
+  font-size: x-large;
+}
+
+.containerSubTitle {
+  font-size: large;
+}
+
+.temperature {
+  font-weight: bold;
+}
+
+.frozenColor {
+  background-color: lightgray;
+}
+
+.coldColor {
+  background-color: lightblue;
+}
+
+.normalColor {
+  background-color: lightgreen;
+}
+
+.warmColor {
+  background-color: lightgoldenrodyellow;
+}
+
+.hotColor {
+  background-color: lightcoral;
+}

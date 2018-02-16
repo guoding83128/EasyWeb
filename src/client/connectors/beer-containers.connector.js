@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { getContainerData } from '@client/actions/beer-containers.action';
-import { BeerContainer } from '@ui/beer-container'
+import { BeerContainers } from '@ui/beer-container'
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -20,4 +20,4 @@ const mapStateToProps = ({ beerContainers }, ownProps) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(BeerContainer);
+)(BeerContainers);

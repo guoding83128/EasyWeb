@@ -1,1 +1,1 @@
-export { default as BeerContainer } from './beer-container';
+export { default as BeerContainers } from './beer-containers';

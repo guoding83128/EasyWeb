@@ -19,7 +19,7 @@ export const waitUpdataData = () => {
   return new Promise((resolve, reject) => {
     try {
       messageBus.once(EVENT_NEW_DATA, newData => {
-        console.log('recv', newData);
+        // console.log('recv', newData);
         resolve(newData);
       });
     } catch(err) {
