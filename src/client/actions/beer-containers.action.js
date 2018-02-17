@@ -1,5 +1,10 @@
+import {
+  AJAX_API_GET_CONTAINER_DATA,
+  AJAX_API_GET_UPDATED_CONTAINER_DATA
+} from '@client/constants/api-url';
+
 const longPolling = () => dispatch => {
-  fetch('/api/updateData')
+  return fetch(AJAX_API_GET_UPDATED_CONTAINER_DATA)
     .then(res => {
       if (res.ok) {
         res.json()
@@ -26,7 +31,7 @@ export const recvUpdateData = data => ({
 });
 
 export const getUpdateData = () => dispatch => {
-  longPolling()(dispatch);
+  return longPolling()(dispatch);
 };
 
 export const RECV_CONTAINER_DATA = 'RECV_CONTAINER_DATA';
@@ -36,7 +41,7 @@ export const recvContainerData = data => ({
 });
 
 export const getContainerData = () => dispatch => {
-  fetch('/api/currData')
+  return fetch(AJAX_API_GET_CONTAINER_DATA)
     .then(res => {
       if (!res.ok) {
         throw Error(res.statusText);

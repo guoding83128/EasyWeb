@@ -12,7 +12,8 @@ Pleare refer to [https://github.com/guoding83128/EasyWeb] for the details of Eas
 5. go to http://localhost:3000 to see the beer-container monitor board 
 
 ## Unit Test
-yarn test  
+ * command: "yarn test"
+ * Refer to <rootDir>/test for test code details
 
 ## Key highlights
 * using Razzle to handle the whole js project's compiling/building with little configuration.
